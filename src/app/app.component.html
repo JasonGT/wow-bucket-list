@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-md-8">
+		<h1>WOW BUCKET LIST</h1>
+
+		<table class="table table-striped">
+
+			<thead>
+				<tr>
+					<th>Goal</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr *ngFor="let item of items">
+					<td>
+						<span>{{ item.name }}</span>
+					</td>
+					<td class="text-right">
+						<button (click)="tryDeleteItem(item)" class="btn btn-danger" [disabled]="!item.allowDelete">
+					<span class="fa fa-times"></span>
+				</button>
+					</td>
+				</tr>
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<td>
+						<input [(ngModel)]="newItem" class="form-control" type="text" placeholder="New Item..." />
+					</td>
+					<td>
+						<button (click)="addItem();" class="btn btn-primary">
+					<span class="fa fa-plus"></span>
+				</button>
+					</td>
+				</tr>
+			</tfoot>
+
+		</table>
+	</div>
+</div>
